@@ -30,8 +30,13 @@ h1::after {
 
 h3, h2 {
     padding-bottom: 30px;
+    font-size: 1.375em;
     text-transform: uppercase;
     color: #fff;
+}
+
+li {
+    list-style: none;
 }
 
 /*===== UI Elements =====*/
@@ -51,8 +56,10 @@ h3, h2 {
 }
 
 .box .btn {
+    position: absolute;
+    bottom: 20px;
     width: 150px;
-    height: 40px;
+    min-height: 40px;
 }
 
 /*===== Header =====*/
@@ -98,7 +105,7 @@ header {
     padding-left: 5vw;
     padding-bottom: 5vh;
     margin-bottom: 30px;
-    background: url('../img/header-img.jpg');
+    background: url('../img/mobile-header.jpg');
     background-size: cover;
     background-position: center;
     border-bottom: 20px solid #e67e22;
@@ -113,7 +120,10 @@ header {
 }
 
 .container {
-    width: 95%;
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    max-width: 1790px;
 }
 
 .container-2 {
@@ -130,6 +140,7 @@ header {
 }
 
 .box {
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -138,6 +149,12 @@ header {
     padding: 20px;
     margin-bottom: 20px;
     background-color: darkgrey;
+}
+
+.box h3 {
+    position: absolute;
+    top: 20px;
+    font-size: 1.375em;
 }
 
 .box p {
@@ -154,7 +171,7 @@ header {
 }
 
 .service2 {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url('../img/treadmill.jpeg');
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url('../img/group.jpg');
     background-size: cover;
     background-position: center;
 }
@@ -171,23 +188,239 @@ header {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    width: 95%;
+    width: 90%;
     padding-top: 50px;
+    margin-bottom: 30px;
+}
+
+.our-trainers {
+    width: 100%;
 }
 
 .trainer {
     position: relative;
     width: calc(50% - 20px);
     margin-bottom: 40px;
+    transition: all .2s ease-in-out;
 }
 
 .trainers img {
     width: 100%;
+    filter: grayscale(100%);
+}
+
+.trainer img:hover {
+    filter: grayscale(0);
+}
+
+.trainer:hover {
+    transform: scale(1.1);
 }
 
 .trainer span {
     position: absolute;
+    font-size: 1.125em;
     color: #fff;
     bottom: -7px;
     left: 0;
+    z-index: 1;
+}
+
+/*===== Footer =====*/
+
+footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 340px;
+    padding-top: 30px;
+    background-color: #000;
+    border-top: 20px solid #e67e22;
+}
+
+footer h3 {
+    padding-bottom: 10px;
+}
+
+.footer-info {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 30px;
+    line-height: 1.4;
+}
+
+.gyms {
+    width: 45%;
+    color: #fff;
+}
+
+.contact {
+    width: 55%;
+    color: #fff;
+}
+
+.newsletter {
+    display: flex;
+    flex-direction: column;
+    width: 80vw;
+    max-width: 310px;
+}
+
+.newsletter label {
+    margin-bottom: 10px;
+    font-size: 1.2em;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+#email {
+    height: 30px;
+    padding: 0 10px;
+    border-radius: 20px;
+    border: none;
+}
+
+.newsletter button {
+    margin-top: 10px;
+    height: 30px;
+    border: none;
+}
+
+/*===== Media Queries =====*/
+
+@media screen and (min-width: 768px) {
+    .btn {
+        width: 120px;
+        height: 40px;
+        font-size: 1em;
+        border-radius: 20px;
+    }
+
+    header .btn {
+        width: 90px;
+        height: 25px;
+        font-size: 0.9em;
+        border-radius: 20px;
+    }
+
+    .herobox {
+        background: url('../img/header.jpg');
+        background-size: cover;
+        background-position: center;
+    }
+
+    .box {
+        width: 32%;
+        height: 300px;
+    }
+
+    .container {
+        width: 95%;
+    }
+
+    .service-container {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .services {
+        font-size: 1.5em;
+    }
+
+    .our-trainers {
+        font-size: 1.5em;;
+    }
+
+    .trainers {
+        justify-content: flex-start;
+    }
+
+    .trainer {
+        width: calc(16.6% - 20px);
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    footer {
+        height: 230px;
+    }
+
+    footer .container {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+@media screen and (min-width: 1025px) {
+    h1 {
+        font-size: 5vw;
+    }
+
+    h1::after {
+        border-top: 4px solid orange;
+    }
+
+    .herobox {
+        height: 70vh;
+        padding-left: 10vw;
+        padding-bottom: 10vh;
+    }
+
+    .container, .trainers {
+        width: 80%;
+    }
+
+    .container-2 {
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 1921px) {
+    header {
+        height: 60px;
+    }
+
+    .btn {
+        width: 180px;
+        height: 70px;
+        font-size: 1.375em;
+        border-radius: 40px;
+    }
+
+    header .btn {
+        width: 120px;
+        height: 35px;
+        font-size: 1em;
+        border-radius: 20px;
+    }
+
+
+    .box {
+        height: 500px;
+    }
+
+    .box h3 {
+        font-size: 2em;
+    }
+    
+    .box p {
+        font-size: 1.625em;
+    }
+
+    .box .btn {
+        width: 170px;
+        min-height: 60px;
+        border-radius: 30px;
+        font-size: 1.125em;
+    }
+
+    /* .container {
+        align-items: center;
+    } */
+
+    .trainers, .service-container {
+        max-width: 1893px;
+    }
 }
