@@ -6,6 +6,11 @@
 
 /*===== Base Elements =====*/
 
+html, body {
+    position: relative;
+    height: 100%;
+}
+
 body {
     font-family: arial, sans-serif;
     font-size: 1em;
@@ -39,6 +44,18 @@ li {
     list-style: none;
 }
 
+a {
+    text-decoration: none;
+}
+
+.black-heading {
+    color: #000;
+}
+
+.white-heading {
+    color: #fff;
+}
+
 /*===== UI Elements =====*/
 
 .btn {
@@ -53,9 +70,11 @@ li {
     color: #fff;
     background-color: #e67e22;
     border-radius: 20px;
+    cursor: pointer;
 }
 
-.box .btn {
+.box .btn,
+.plan .btn  {
     position: absolute;
     bottom: 20px;
     width: 150px;
@@ -108,10 +127,34 @@ header {
     background: url('../img/mobile-header.jpg');
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
+    border-bottom: 20px solid #e67e22;
+}
+
+.herobox-join {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+    width: 100%;
+    height: 50vh;
+    padding-left: 5vw;
+    padding-bottom: 5vh;
+    margin-bottom: 30px;
+    background: url('../img/join-header-mobile.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     border-bottom: 20px solid #e67e22;
 }
 
 /*===== Overall layout =====*/
+
+.main-container {
+    position: relative;
+    min-height: 100vh;
+    padding-bottom: 340px;
+}
 
 .wrapper {
     display: flex;
@@ -126,6 +169,13 @@ header {
     max-width: 1790px;
 }
 
+.container-3 {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    max-width: 1018px;
+}
+
 .container-2 {
     display: flex;
     justify-content: center;
@@ -133,11 +183,15 @@ header {
     margin-top: 30px;
 }
 
-/*===== Services =====*/
-
-.services {
-    color: #000;
+.join-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 50px;
 }
+
+/*===== Services =====*/
 
 .box {
     position: relative;
@@ -226,13 +280,68 @@ header {
     z-index: 1;
 }
 
+/*===== Join Now page =====*/
+
+.plan {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 300px;
+    margin-bottom: 20px;
+    padding: 20px;
+    color: #fff;
+    background-image: url('../img/plan-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.plan-top {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 90px;
+    padding-left: 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.plan-top h3 {
+    padding-bottom: 5px;
+}
+
+.plan-top span {
+    font-size: 1.125em;
+}
+
+.plan p {
+    position: absolute;
+    margin-top: 20px;
+    width: 80%;
+    font-size: 1.125em;
+    color: #fff;
+}
+
+.plan .btn {
+    position: absolute;
+    bottom: 20px;
+}
+
 /*===== Footer =====*/
 
 footer {
+    position: absolute;
+    bottom: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
     height: 340px;
+    width: 100%;
     padding-top: 30px;
     background-color: #000;
     border-top: 20px solid #e67e22;
@@ -291,6 +400,10 @@ footer h3 {
 /*===== Media Queries =====*/
 
 @media screen and (min-width: 768px) {
+    .main-container {
+        padding-bottom: 230px;
+    }
+    
     .btn {
         width: 120px;
         height: 40px;
@@ -307,6 +420,12 @@ footer h3 {
 
     .herobox {
         background: url('../img/header.jpg');
+        background-size: cover;
+        background-position: center;
+    }
+
+    .herobox-join {
+        background: url('../img/join-header.jpg');
         background-size: cover;
         background-position: center;
     }
@@ -351,6 +470,19 @@ footer h3 {
         flex-direction: row;
         justify-content: space-between;
     }
+
+    /* Join Now page */
+    .plan {
+        width: 32%;
+        max-width: 320px;
+        height: 400px;
+        /* margin-left: 10px;
+        margin-right: 10px; */
+    }
+
+    .join-container {
+        flex-direction: row;
+    }
 }
 
 @media screen and (min-width: 1025px) {
@@ -362,7 +494,7 @@ footer h3 {
         border-top: 4px solid orange;
     }
 
-    .herobox {
+    .herobox, .herobox-join {
         height: 70vh;
         padding-left: 10vw;
         padding-bottom: 10vh;
