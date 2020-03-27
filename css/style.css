@@ -162,7 +162,7 @@ header {
 .main-container {
     position: relative;
     min-height: 100vh;
-    padding-bottom: 340px;
+    padding-bottom: 400px;
 }
 
 .wrapper {
@@ -480,7 +480,7 @@ footer h3 {
 
 @media screen and (min-width: 768px) {
     .main-container {
-        padding-bottom: 230px;
+        padding-bottom: 270px;
     }
     
     .btn {
